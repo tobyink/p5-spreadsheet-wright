@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dbug="http://ontologi.es/doap-bugs#" xmlns:dc="http://purl.org/dc/terms/" xmlns:dcs="http://ontologi.es/doap-changeset#" xmlns:doap="http://usefulinc.com/ns/doap#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+<rdf:Description rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r0">
+	<dcs:item rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r1"/>
+	<dcs:item rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r2"/>
+	<dcs:item rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r3"/>
+	<dcs:item rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r4"/>
+	<dcs:item rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r5"/>
+	<dcs:versus rdf:resource="http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/v_0-03"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r1">
+	<rdfs:label xml:lang="en">Split CSV and Excel outputs into separate modules</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r2">
+	<rdf:type rdf:resource="http://ontologi.es/doap-changeset#Addition"/>
+	<rdfs:label xml:lang="en">HTML and XHTML output</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r3">
+	<rdf:type rdf:resource="http://ontologi.es/doap-changeset#Addition"/>
+	<rdfs:label xml:lang="en">JSON output</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r4">
+	<rdf:type rdf:resource="http://ontologi.es/doap-changeset#Addition"/>
+	<rdfs:label xml:lang="en">OpenDocument (OpenOffice.org) output</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r5">
+	<rdf:type rdf:resource="http://ontologi.es/doap-changeset#Addition"/>
+	<rdfs:label>addrows() shortcut for adding multiple rows</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r6">
+	<doap:browse rdf:resource="http://goddamn.co.uk/viewvc/perlmods/Spreadsheet-Wright/"/>
+	<rdf:type rdf:resource="http://usefulinc.com/ns/doap#SVNRepository"/>
+</rdf:Description>
+<rdf:Description rdf:about="file:///home/tai/src/perlmods/Spreadsheet-Wright/Changes.ttl">
+	<dc:creator rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<dc:description xml:lang="en">Revision history for Perl extension Spreadsheet::Wright.</dc:description>
+	<dc:subject rdf:resource="http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/project"/>
+	<dc:title>Changes</dc:title>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/project">
+	<doap:bug-database rdf:resource="http://rt.cpan.org/Dist/Display.html?Queue=Spreadsheet-Wright"/>
+	<doap:developer rdf:resource="http://purl.org/NET/cpan-uri/person/amaltsev"/>
+	<doap:developer rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<doap:documenter rdf:resource="http://purl.org/NET/cpan-uri/person/amaltsev"/>
+	<doap:documenter rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<doap:download-page rdf:resource="http://search.cpan.org/dist/Spreadsheet-Wright/"/>
+	<doap:homepage rdf:resource="http://search.cpan.org/dist/Spreadsheet-Wright/"/>
+	<doap:license rdf:resource="http://dev.perl.org/licenses/"/>
+	<doap:maintainer rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<doap:name>Spreadsheet-Wright</doap:name>
+	<doap:programming-language>Perl</doap:programming-language>
+	<doap:release rdf:resource="http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/v_0-102"/>
+	<doap:repository rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r6"/>
+	<doap:shortdesc xml:lang="en">simple spreadsheet worker</doap:shortdesc>
+	<doap:tester rdf:resource="http://tobyinkster.co.uk/#i"/>
+	<rdf:type rdf:resource="http://usefulinc.com/ns/doap#Project"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/v_0-102">
+	<dcs:changeset rdf:nodeID="r9B596E769EDD11DF8272834E4F5AB526r0"/>
+	<dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-08-03</dc:issued>
+	<doap:file-release rdf:resource="http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Spreadsheet-Wright-0.102.tar.gz"/>
+	<doap:revision rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.102</doap:revision>
+	<rdf:type rdf:resource="http://usefulinc.com/ns/doap#Version"/>
+	<rdfs:label xml:lang="en">Fork of Spreadsheet::Write</rdfs:label>
+</rdf:Description>
+<rdf:Description xmlns:ns1="http://www.w3.org/2002/07/owl#" rdf:about="http://tobyinkster.co.uk/#i">
+	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+	<ns1:sameAs rdf:resource="http://purl.org/NET/cpan-uri/person/tobyink"/>
+	<foaf:homepage rdf:resource="http://tobyinkster.co.uk/"/>
+	<foaf:mbox rdf:resource="mailto:tobyink@cpan.org"/>
+	<foaf:name>Toby Inkster</foaf:name>
+	<foaf:page rdf:resource="http://search.cpan.org/~tobyink/"/>
+</rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,69 @@
+#############################################################
+
+@prefix :        <http://usefulinc.com/ns/doap#> .
+@prefix dcs:     <http://ontologi.es/doap-changeset#> .
+@prefix dc:      <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix my:      <http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix toby:    <http://tobyinkster.co.uk/#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#############################################################
+
+<>
+
+	dc:title         "Changes" ;
+	dc:description   "Revision history for Perl extension Spreadsheet::Wright."@en ;
+	dc:subject       my:project ;
+	dc:creator       toby:i .
+
+#############################################################
+
+my:v_0-102
+
+	a               :Version ;
+	dc:issued       "2010-08-03"^^xsd:date ;
+	:revision       "0.102"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Spreadsheet-Wright-0.102.tar.gz> ;
+	rdfs:label      "Fork of Spreadsheet::Write"@en ;
+	dcs:changeset [
+		dcs:versus <http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/v_0-03> ;
+		dcs:item [ rdfs:label "Split CSV and Excel outputs into separate modules"@en ] ;
+		dcs:item [ rdfs:label "HTML and XHTML output"@en ; a dcs:Addition ] ;
+		dcs:item [ rdfs:label "JSON output"@en ; a dcs:Addition ] ;
+		dcs:item [ rdfs:label "OpenDocument (OpenOffice.org) output"@en ; a dcs:Addition ] ;
+		dcs:item [ rdfs:label "addrows() shortcut for adding multiple rows" ; a dcs:Addition ] ;
+		] .
+
+#############################################################
+
+my:project
+
+	a               :Project ;
+	:name           "Spreadsheet-Wright" ;
+	:shortdesc      "simple spreadsheet worker"@en ;
+	:programming-language  "Perl" ;
+	:homepage       <http://search.cpan.org/dist/Spreadsheet-Wright/> ;
+	:download-page  <http://search.cpan.org/dist/Spreadsheet-Wright/> ;
+	:bug-database   <http://rt.cpan.org/Dist/Display.html?Queue=Spreadsheet-Wright> ;
+	:repository     [ a :SVNRepository ; :browse <http://goddamn.co.uk/viewvc/perlmods/Spreadsheet-Wright/> ] ;
+	:maintainer     toby:i ;
+	:developer      toby:i , <http://purl.org/NET/cpan-uri/person/amaltsev> ;
+	:documenter     <http://purl.org/NET/cpan-uri/person/amaltsev> , toby:i ;
+	:tester         toby:i ;
+	:license        <http://dev.perl.org/licenses/> ;
+	:release        my:v_0-102 .
+
+#############################################################
+
+toby:i
+
+	a               foaf:Person ;
+	foaf:name       "Toby Inkster" ;
+	foaf:homepage   <http://tobyinkster.co.uk/> ;
+	foaf:page       <http://search.cpan.org/~tobyink/> ;
+	foaf:mbox       <mailto:tobyink@cpan.org> ;
+	<http://www.w3.org/2002/07/owl#sameAs> <http://purl.org/NET/cpan-uri/person/tobyink> .
+
+#############################################################
