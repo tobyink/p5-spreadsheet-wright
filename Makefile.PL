@@ -34,8 +34,9 @@ resources(
 	
 write_doap_changes;
 write_doap_changes_xml;
+auto_license;
+auto_manifest;
 
-include 'Test::Signature';
 auto_install;
 WriteAll(
 	'meta' => 1,
