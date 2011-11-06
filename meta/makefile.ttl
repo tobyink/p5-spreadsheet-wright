@@ -1,0 +1,24 @@
+# This file provides instructions for packaging.
+
+@prefix : <http://purl.org/NET/cpan-uri/terms#> .
+
+<http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/project>
+	:perl_version_from _:main ;
+	:version_from _:main ;
+	:readme_from _:main ;
+	:test_requires "Test::More 0.61" ;
+	:requires
+		"common::sense" ,
+		"Carp" ,
+		"Encode" ,
+		"IO::File" ,
+		"Text::CSV" ;
+	:recommends
+		"Archive::Zip" ,
+		"DateTime" ,
+		"HTML::HTML5::Writer" ,
+		"JSON" ,
+		"Spreadsheet::WriteExcel" ,
+		"XML::LibXML 1.62" .
+
+_:main <http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#fileName> "lib/Spreadsheet/Wright.pm" .

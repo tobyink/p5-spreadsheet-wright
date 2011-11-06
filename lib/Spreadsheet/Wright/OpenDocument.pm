@@ -1,13 +1,18 @@
 package Spreadsheet::Wright::OpenDocument;
 
-our $VERSION = '0.102';
-
-use 5.008;
-use base qw'Spreadsheet::Wright::OpenDocumentXML';
+use 5.010;
 use common::sense;
 
+BEGIN {
+	$Spreadsheet::Wright::OpenDocument::VERSION   = '0.103';
+	$Spreadsheet::Wright::OpenDocument::AUTHORITY = 'cpan:TOBYINK';
+}
+
 use Archive::Zip qw':CONSTANTS';
+use Carp;
 use DateTime;
+
+use base qw(Spreadsheet::Wright::OpenDocumentXML);
 
 our $MANIFEST_XML = <<MANIFEST;
 <?xml version="1.0" encoding="UTF-8"?>

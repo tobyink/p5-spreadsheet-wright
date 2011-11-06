@@ -1,12 +1,17 @@
 package Spreadsheet::Wright::HTML;
 
-our $VERSION = '0.102';
-
-use 5.008;
-use base qw'Spreadsheet::Wright::XHTML';
+use 5.010;
 use common::sense;
 
+BEGIN {
+	$Spreadsheet::Wright::HTML::VERSION   = '0.103';
+	$Spreadsheet::Wright::HTML::AUTHORITY = 'cpan:TOBYINK';
+}
+
+use Carp;
 use HTML::HTML5::Writer;
+
+use base qw(Spreadsheet::Wright::XHTML);
 
 sub _make_output
 {

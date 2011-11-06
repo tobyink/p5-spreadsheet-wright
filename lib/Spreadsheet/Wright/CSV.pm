@@ -1,24 +1,29 @@
 package Spreadsheet::Wright::CSV;
 
-our $VERSION = '0.102';
-
-use 5.008;
-use base qw'Spreadsheet::Wright';
+use 5.010;
 use common::sense;
 
+BEGIN {
+	$Spreadsheet::Wright::CSV::VERSION   = '0.103';
+	$Spreadsheet::Wright::CSV::AUTHORITY = 'cpan:TOBYINK';
+}
+
+use Carp;
 use Encode;
 use Text::CSV;
+
+use base qw(Spreadsheet::Wright);
 
 sub new
 {
 	my ($class, %args) = @_;
 	my $self = bless {}, $class;
 	
-	my $filename = $args{'file'} || $args{'filename'} || die "Need filename.";
-	$self->{'_FILENAME'}    = $filename;
+	$self->{'_FILENAME'} = $args{'file'} // $args{'filename'}
+		or croak "Need filename";
 
-	$args{'csv_options'}->{'eol'}       ||= "\r\n";
-	$args{'csv_options'}->{'sep_char'}  ||= ",";	
+	$args{'csv_options'}{'eol'}      //= "\r\n";
+	$args{'csv_options'}{'sep_char'} //= ",";	
 	$self->{'_CSV_OPTIONS'} = $args{'csv_options'};
 	
 	return $self;
@@ -27,7 +32,7 @@ sub new
 sub _prepare
 {
 	my $self = shift;
-	$self->{'_CSV_OBJ'}||=Text::CSV->new($self->{'_CSV_OPTIONS'});
+	$self->{'_CSV_OBJ'} //=Text::CSV->new($self->{'_CSV_OPTIONS'});
 	return $self;
 }
 
@@ -59,14 +64,14 @@ sub _add_prepared_row
 	}
 
 	my $string;
-	$self->{'_CSV_OBJ'}->combine(@texts) ||
-	die "csv_combine failed at ".$self->{'_CSV_OBJ'}->error_input();
+	$self->{'_CSV_OBJ'}->combine(@texts)
+		or croak "csv_combine failed at ".$self->{'_CSV_OBJ'}->error_input();
 	$string = $self->{'_CSV_OBJ'}->string();
 	
 	# Restore non-ASCII characters.
 	$string =~ s/&#(\d+);/chr($1)/esg;
 	$string = Encode::decode('utf8',$string) unless Encode::is_utf8($string);
-	$string = Encode::encode($self->{'_ENCODING'} || 'utf8',$string);
+	$string = Encode::encode(($self->{'_ENCODING'}//'utf8'), $string);
 	
 	# Output to file.
 	$self->{'_FH'}->print($string);

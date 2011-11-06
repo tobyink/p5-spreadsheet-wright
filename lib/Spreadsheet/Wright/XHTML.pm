@@ -1,24 +1,29 @@
 package Spreadsheet::Wright::XHTML;
 
-our $VERSION = '0.102';
-
-use 5.008;
-use base qw'Spreadsheet::Wright';
+use 5.010;
 use common::sense;
-use constant XHTML_NS => 'http://www.w3.org/1999/xhtml';
 
+BEGIN {
+	$Spreadsheet::Wright::XHTML::VERSION   = '0.103';
+	$Spreadsheet::Wright::XHTML::AUTHORITY = 'cpan:TOBYINK';
+}
+
+use Carp;
 use XML::LibXML;
+
+use base qw(Spreadsheet::Wright);
+use constant XHTML_NS => 'http://www.w3.org/1999/xhtml';
 
 sub new
 {
 	my ($class, %args) = @_;
 	
-	$args{'title'} ||= 'Data';
+	$args{'title'} //= 'Data';
 	
 	my $self = bless { 'options' => \%args }, $class;
 	
-	my $filename = $args{'file'} || $args{'filename'} || die "Need filename.";
-	$self->{'_FILENAME'}    = $filename;
+	$self->{'_FILENAME'} = $args{'file'} // $args{'filename'}
+		or croak "Need filename.";
 
 	return $self;
 }

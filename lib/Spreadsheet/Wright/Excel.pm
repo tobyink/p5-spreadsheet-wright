@@ -1,23 +1,27 @@
 package Spreadsheet::Wright::Excel;
 
-our $VERSION = '0.102';
-
-use 5.008;
-use base qw'Spreadsheet::Wright';
+use 5.010;
 use common::sense;
 
+BEGIN {
+	$Spreadsheet::Wright::Excel::VERSION   = '0.103';
+	$Spreadsheet::Wright::Excel::AUTHORITY = 'cpan:TOBYINK';
+}
+
+use Carp;
 use Spreadsheet::WriteExcel;
+
+use base qw(Spreadsheet::Wright);
 
 sub new
 {
 	my ($class, %args) = @_;
 	my $self = bless {}, $class;
 	
-	my $filename = $args{'file'} || $args{'filename'} || die "Need filename.";
-	
-	$self->{'_FILENAME'}  = $filename;
-	$self->{'_SHEETNAME'} = $args{'sheet'}  || '';
-	$self->{'_STYLES'}    = $args{'styles'} || {};
+	$self->{'_FILENAME'}  = $args{'file'} // $args{'filename'}
+		or croak "Need filename.";
+	$self->{'_SHEETNAME'} = $args{'sheet'}  // '';
+	$self->{'_STYLES'}    = $args{'styles'} // {};
 		
 	return $self;
 }
@@ -44,7 +48,7 @@ sub _prepare
 sub freeze (@)
 {
 	my $self=shift;
-	$self->_open() || return undef;
+	$self->_open() or return;
 	$self->{'_WORKSHEET'}->freeze_panes(@_);
 	return $self;
 }
@@ -75,19 +79,19 @@ sub _format_cache($$)
 		$cache_key .= $key . $format->{$key};
 	}
 
-	if(exists($self->{'_FORMAT_CACHE'}->{$cache_key}))
+	if(exists($self->{'_FORMAT_CACHE'}{$cache_key}))
 	{
-		return $self->{'_FORMAT_CACHE'}->{$cache_key};
+		return $self->{'_FORMAT_CACHE'}{$cache_key};
 	}
 
-	return $self->{'_FORMAT_CACHE'}->{$cache_key} = $self->{'_WORKBOOK'}->add_format(%$format);
+	return $self->{'_FORMAT_CACHE'}{$cache_key} = $self->{'_WORKBOOK'}->add_format(%$format);
 }
 
 sub addsheet ($$)
 {
 	my ($self,$name)=@_;
 
-	$self->_open() || return undef;
+	$self->_open() or return;
 
 	my $worksheet = $self->{'_WORKBOOK'}->add_worksheet($name);
 	$self->{'_SHEETNAME'} = $name;
@@ -182,18 +186,22 @@ sub _add_prepared_row
 		my @params = ($row, $col++, $value);
 		push @params, $self->_format_cache(\%format) if keys %format;
 
-		my $type = lc $props->{'type'} || 'auto';
-		if    ($type eq 'auto')      { $worksheet->write(@params); }
-		elsif ($type eq 'string')    { $worksheet->write_string(@params); }
-		elsif ($type eq 'text')      { $worksheet->write_string(@params); }
-		elsif ($type eq 'number')    { $worksheet->write_number(@params); }
-		elsif ($type eq 'blank')     { $worksheet->write_blank(@params); }
-		elsif ($type eq 'formula')   { $worksheet->write_formula(@params); }
-		elsif ($type eq 'url')       { $worksheet->write_url(@params); }
-		else
+		my $type = defined $props->{'type'} ? lc $props->{'type'} : 'auto';
+		
+		given ($type)
 		{
-			warn "Unknown cell type $type";
-			$worksheet->write(@params);
+			when ('auto')      { $worksheet->write(@params); }
+			when ('string')    { $worksheet->write_string(@params); }
+			when ('text')      { $worksheet->write_string(@params); }
+			when ('number')    { $worksheet->write_number(@params); }
+			when ('blank')     { $worksheet->write_blank(@params); }
+			when ('formula')   { $worksheet->write_formula(@params); }
+			when ('url')       { $worksheet->write_url(@params); }
+			default
+			{
+				carp "Unknown cell type $type";
+				$worksheet->write(@params);
+			}
 		}
 	}
 	

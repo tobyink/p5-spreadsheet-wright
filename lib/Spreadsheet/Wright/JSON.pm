@@ -1,27 +1,32 @@
 package Spreadsheet::Wright::JSON;
 
-our $VERSION = '0.102';
-
-use 5.008;
-use base qw'Spreadsheet::Wright';
+use 5.010;
 use common::sense;
 
+BEGIN {
+	$Spreadsheet::Wright::JSON::VERSION   = '0.103';
+	$Spreadsheet::Wright::JSON::AUTHORITY = 'cpan:TOBYINK';
+}
+
+use Carp;
 use JSON;
+
+use base qw(Spreadsheet::Wright);
 
 sub new
 {
 	my ($class, %args) = @_;
 	my $self = bless { 'options' => \%args }, $class;	
-	my $filename = $args{'file'} || $args{'filename'} || die "Need filename.";
-	$self->{'_FILENAME'}    = $filename;
-	$self->{'_WORKSHEET'} = $args{'sheet'} || 'Sheet1';
+	$self->{'_FILENAME'} = $args{'file'} // $args{'filename'}
+		or croak "Need filename.";
+	$self->{'_WORKSHEET'} = $args{'sheet'} // 'Sheet1';
 	return $self;
 }
 
 sub addsheet
 {
 	my ($self, $caption) = @_;
-	$caption ||= 'Sheet' . (1 + scalar keys %{$self->{'data'}});
+	$caption //= 'Sheet' . (1 + scalar keys %{$self->{'data'}});
 	
 	if (defined $self->{'data'}->{$caption})
 	{

@@ -1,9 +1,17 @@
 package Spreadsheet::Wright::OpenDocumentXML;
 
-our $VERSION = '0.102';
+use 5.010;
+use common::sense;
 
-use 5.008;
-use base qw'Spreadsheet::Wright';
+BEGIN {
+	$Spreadsheet::Wright::OpenDocumentXML::VERSION   = '0.103';
+	$Spreadsheet::Wright::OpenDocumentXML::AUTHORITY = 'cpan:TOBYINK';
+}
+
+use Carp;
+use XML::LibXML;
+
+use base qw(Spreadsheet::Wright);
 use constant {
 	OFFICE_NS => "urn:oasis:names:tc:opendocument:xmlns:office:1.0",
 	STYLE_NS  => "urn:oasis:names:tc:opendocument:xmlns:style:1.0",
@@ -12,9 +20,6 @@ use constant {
 	META_NS   => "urn:oasis:names:tc:opendocument:xmlns:meta:1.0",
 	NUMBER_NS => "urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0",
 	};
-use common::sense;
-
-use XML::LibXML;
 
 sub new
 {
@@ -22,8 +27,8 @@ sub new
 	
 	my $self = bless { 'options' => \%args }, $class;
 	
-	my $filename = $args{'file'} || $args{'filename'} || die "Need filename.";
-	$self->{'_FILENAME'}    = $filename;
+	$self->{'_FILENAME'} = $args{'file'} // $args{'filename'}
+		or croak "Need filename.";
 
 	return $self;
 }
@@ -56,7 +61,7 @@ sub _prepare
 	$self->{'body'} = $self->{'document'}->documentElement
 		->addNewChild(OFFICE_NS, 'body')
 		->addNewChild(OFFICE_NS, 'spreadsheet');
-	$self->addsheet($self->{'options'}->{'sheet'} || 'Sheet 1');
+	$self->addsheet($self->{'options'}->{'sheet'} // 'Sheet 1');
 	
 	return $self;
 }
