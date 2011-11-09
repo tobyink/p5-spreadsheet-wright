@@ -12,7 +12,7 @@ use Archive::Zip qw':CONSTANTS';
 use Carp;
 use DateTime;
 
-use base qw(Spreadsheet::Wright::OpenDocumentXML);
+use parent qw(Spreadsheet::Wright::OpenDocumentXML);
 
 our $MANIFEST_XML = <<MANIFEST;
 <?xml version="1.0" encoding="UTF-8"?>

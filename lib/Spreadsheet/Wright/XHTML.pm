@@ -11,7 +11,7 @@ BEGIN {
 use Carp;
 use XML::LibXML;
 
-use base qw(Spreadsheet::Wright);
+use parent qw(Spreadsheet::Wright);
 use constant XHTML_NS => 'http://www.w3.org/1999/xhtml';
 
 sub new

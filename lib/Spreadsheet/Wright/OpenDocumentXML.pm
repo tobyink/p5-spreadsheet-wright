@@ -11,7 +11,7 @@ BEGIN {
 use Carp;
 use XML::LibXML;
 
-use base qw(Spreadsheet::Wright);
+use parent qw(Spreadsheet::Wright);
 use constant {
 	OFFICE_NS => "urn:oasis:names:tc:opendocument:xmlns:office:1.0",
 	STYLE_NS  => "urn:oasis:names:tc:opendocument:xmlns:style:1.0",

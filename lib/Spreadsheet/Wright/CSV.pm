@@ -12,7 +12,7 @@ use Carp;
 use Encode;
 use Text::CSV;
 
-use base qw(Spreadsheet::Wright);
+use parent qw(Spreadsheet::Wright);
 
 sub new
 {

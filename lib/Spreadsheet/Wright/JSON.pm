@@ -11,7 +11,7 @@ BEGIN {
 use Carp;
 use JSON;
 
-use base qw(Spreadsheet::Wright);
+use parent qw(Spreadsheet::Wright);
 
 sub new
 {

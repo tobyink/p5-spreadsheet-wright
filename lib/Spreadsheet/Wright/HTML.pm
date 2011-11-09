@@ -11,7 +11,7 @@ BEGIN {
 use Carp;
 use HTML::HTML5::Writer;
 
-use base qw(Spreadsheet::Wright::XHTML);
+use parent qw(Spreadsheet::Wright::XHTML);
 
 sub _make_output
 {

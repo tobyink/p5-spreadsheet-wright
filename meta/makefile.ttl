@@ -8,6 +8,7 @@
 	:readme_from _:main ;
 	:test_requires "Test::More 0.61" ;
 	:requires
+		"parent" ,
 		"common::sense" ,
 		"Carp" ,
 		"Encode" ,
