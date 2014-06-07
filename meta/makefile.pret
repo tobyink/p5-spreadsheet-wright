@@ -1,0 +1,15 @@
+# This file provides instructions for packaging.
+
+@prefix : <http://ontologi.es/doap-deps#> .
+
+`Spreadsheet-Wright`
+	:test-requirement       [ :on "Test::More 0.61"^^:CpanId ];
+	:runtime-requirement    [ :on "perl 5.010000"^^:CpanId ];
+	:runtime-requirement    [ :on "parent"^^:CpanId ];
+	:runtime-requirement    [ :on "Text::CSV"^^:CpanId ];
+	:runtime-recommendation [ :on "Archive::Zip"^^:CpanId ];
+	:runtime-recommendation [ :on "DateTime"^^:CpanId ];
+	:runtime-recommendation [ :on "HTML::HTML5::Writer"^^:CpanId ];
+	:runtime-recommendation [ :on "JSON"^^:CpanId ];
+	:runtime-recommendation [ :on "Spreadsheet::WriteExcel"^^:CpanId ];
+	:runtime-recommendation [ :on "XML::LibXML 1.62"^^:CpanId ].
