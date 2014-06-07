@@ -2,6 +2,7 @@ package Spreadsheet::Wright::Excel;
 
 use 5.010;
 use strictures 1;
+no warnings qw( uninitialized numeric );
 
 BEGIN {
 	$Spreadsheet::Wright::Excel::VERSION   = '0.104';
@@ -110,7 +111,7 @@ sub _add_prepared_row
 	my $row       = $self->{'_WORKBOOK_ROW'};
 	my $col       = 0;
 	
-	for(my $i=0; $i<scalar(@_); $i++)
+	for (my $i=0; $i<scalar(@_); $i++)
 	{
 		my %props = %{ $_[$i] };
 		my $value = $props{'content'};
@@ -119,7 +120,7 @@ sub _add_prepared_row
 		my $props = \%props;
 
 		my %format;
-		if(%props)
+		if (%props)
 		{
 			if(my $style = $props->{'style'})
 			{
@@ -186,22 +187,20 @@ sub _add_prepared_row
 		my @params = ($row, $col++, $value);
 		push @params, $self->_format_cache(\%format) if keys %format;
 
-		my $type = defined $props->{'type'} ? lc $props->{'type'} : 'auto';
+		my $type = defined $props->{'type'}
+			? lc $props->{'type'}
+			: 'auto';
 		
-		given ($type)
-		{
-			when ('auto')      { $worksheet->write(@params); }
-			when ('string')    { $worksheet->write_string(@params); }
-			when ('text')      { $worksheet->write_string(@params); }
-			when ('number')    { $worksheet->write_number(@params); }
-			when ('blank')     { $worksheet->write_blank(@params); }
-			when ('formula')   { $worksheet->write_formula(@params); }
-			when ('url')       { $worksheet->write_url(@params); }
-			default
-			{
-				carp "Unknown cell type $type";
-				$worksheet->write(@params);
-			}
+		if ($type eq 'auto')       { $worksheet->write(@params); }
+		elsif ($type eq 'string')  { $worksheet->write_string(@params); }
+		elsif ($type eq 'text')    { $worksheet->write_string(@params); }
+		elsif ($type eq 'number')  { $worksheet->write_number(@params); }
+		elsif ($type eq 'blank')   { $worksheet->write_blank(@params); }
+		elsif ($type eq 'formula') { $worksheet->write_formula(@params); }
+		elsif ($type eq 'url')     { $worksheet->write_url(@params); }
+		else {
+			carp "Unknown cell type $type";
+			$worksheet->write(@params);
 		}
 	}
 	
