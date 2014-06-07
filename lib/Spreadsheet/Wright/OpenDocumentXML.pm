@@ -1,7 +1,7 @@
 package Spreadsheet::Wright::OpenDocumentXML;
 
 use 5.010;
-use common::sense;
+use strictures 1;
 
 BEGIN {
 	$Spreadsheet::Wright::OpenDocumentXML::VERSION   = '0.104';

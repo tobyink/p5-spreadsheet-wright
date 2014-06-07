@@ -1,7 +1,7 @@
 package Spreadsheet::Wright::HTML;
 
 use 5.010;
-use common::sense;
+use strictures 1;
 
 BEGIN {
 	$Spreadsheet::Wright::HTML::VERSION   = '0.104';

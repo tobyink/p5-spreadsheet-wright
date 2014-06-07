@@ -9,7 +9,7 @@
 	:test_requires "Test::More 0.61" ;
 	:requires
 		"parent" ,
-		"common::sense" ,
+		"strictures 1" ,
 		"Carp" ,
 		"Encode" ,
 		"IO::File" ,
