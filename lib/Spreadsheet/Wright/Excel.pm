@@ -1,7 +1,8 @@
 package Spreadsheet::Wright::Excel;
 
 use 5.010;
-use strictures 1;
+use strict;
+use warnings;
 no warnings qw( uninitialized numeric );
 
 BEGIN {

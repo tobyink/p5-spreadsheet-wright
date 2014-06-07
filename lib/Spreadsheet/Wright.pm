@@ -1,7 +1,9 @@
 package Spreadsheet::Wright;
 
 use 5.010;
-use strictures 1;
+use strict;
+use warnings;
+no warnings qw( uninitialized numeric );
 
 BEGIN {
 	$Spreadsheet::Wright::VERSION   = '0.104';
