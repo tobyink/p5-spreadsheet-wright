@@ -4,7 +4,7 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::OpenDocumentXML::VERSION   = '0.103';
+	$Spreadsheet::Wright::OpenDocumentXML::VERSION   = '0.104';
 	$Spreadsheet::Wright::OpenDocumentXML::AUTHORITY = 'cpan:TOBYINK';
 }
 

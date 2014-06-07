@@ -4,7 +4,7 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::VERSION   = '0.103';
+	$Spreadsheet::Wright::VERSION   = '0.104';
 	$Spreadsheet::Wright::AUTHORITY = 'cpan:TOBYINK';
 }
 
@@ -20,7 +20,7 @@ sub new
 	
 	if (lc $format eq 'auto')
 	{
-		$format = ($filename=~/\.(.+)$/) ? lc($1) : 'auto';
+		$format = ($filename =~ /\.([^\.]+)$/) ? lc($1) : 'auto';
 	}
 	
 	my $implementation = {

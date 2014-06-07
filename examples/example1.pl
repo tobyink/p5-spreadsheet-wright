@@ -13,7 +13,7 @@ my @row = (
 	'Foo',
 	'Bar',
 	{ content => 'Baz' , font_weight => 'bold' , header => 1 , style=>'redcell' },
-	);
+);
 
 $csv->addrows(\@row,\@row);
 $excel->addrows(\@row,"Another",\@row);

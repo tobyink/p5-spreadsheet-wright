@@ -1,0 +1,37 @@
+@prefix dbug: <http://ontologi.es/doap-bugs#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prio: <http://purl.org/NET/cpan-uri/rt/priority/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rt: <http://purl.org/NET/cpan-uri/rt/ticket/> .
+@prefix status: <http://purl.org/NET/cpan-uri/rt/status/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+_:r1328570407r0 a foaf:Agent ;
+	foaf:mbox <mailto:ANDK@cpan.org> .
+_:r1328570407r1 a foaf:Agent ;
+	foaf:nick "TOBYINK" .
+_:r1328570407r2 a foaf:Agent ;
+	foaf:mbox <mailto:DRAXIL@cpan.org> .
+_:r1328570407r3 a foaf:Agent ;
+	foaf:nick "Nobody" .
+<http://purl.org/NET/cpan-uri/dist/Spreadsheet-Wright/project> dbug:issue <http://purl.org/NET/cpan-uri/rt/ticket/62737>, <http://purl.org/NET/cpan-uri/rt/ticket/74559> .
+<http://purl.org/NET/cpan-uri/rt/ticket/62737> dbug:assignee _:r1328570407r1 ;
+	dbug:id "62737"^^xsd:string ;
+	dbug:page <https://rt.cpan.org/Ticket/Display.html?id=62737> ;
+	dbug:reporter _:r1328570407r0 ;
+	dbug:status status:resolved ;
+	dc:created "2010-11-05T18:02:05"^^xsd:dateTime ;
+	dc:modified "2011-11-09T12:20:55"^^xsd:dateTime ;
+	a dbug:Issue ;
+	rdfs:label "signature test broken" .
+<http://purl.org/NET/cpan-uri/rt/ticket/74559> dbug:assignee _:r1328570407r3 ;
+	dbug:id "74559"^^xsd:string ;
+	dbug:page <https://rt.cpan.org/Ticket/Display.html?id=74559> ;
+	dbug:reporter _:r1328570407r2 ;
+	dbug:status status:resolved ;
+	dc:created "2012-01-31T11:12:07"^^xsd:dateTime ;
+	dc:modified "2012-02-06T23:00:50"^^xsd:dateTime ;
+	a dbug:Issue ;
+	rdfs:label "Undeclared $VERSION in OpenDocument module" .

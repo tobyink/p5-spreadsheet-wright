@@ -4,7 +4,7 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::CSV::VERSION   = '0.103';
+	$Spreadsheet::Wright::CSV::VERSION   = '0.104';
 	$Spreadsheet::Wright::CSV::AUTHORITY = 'cpan:TOBYINK';
 }
 

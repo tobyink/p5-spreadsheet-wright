@@ -4,7 +4,7 @@ use 5.010;
 use common::sense;
 
 BEGIN {
-	$Spreadsheet::Wright::HTML::VERSION   = '0.103';
+	$Spreadsheet::Wright::HTML::VERSION   = '0.104';
 	$Spreadsheet::Wright::HTML::AUTHORITY = 'cpan:TOBYINK';
 }
 

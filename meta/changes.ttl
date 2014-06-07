@@ -33,6 +33,18 @@ my:v_0-103
 		dcs:versus my:v_0-102 ;
 		dcs:item   [ rdfs:label "Minor cleanups."@en ] ;
 		dcs:item   [ rdfs:label "Module::Package::RDF"@en ; a dcs:Packaging ] ;
-		dcs:item   [ rdfs:label "use 5.010" ; a dcs:Update ]
+		dcs:item   [ rdfs:label "use 5.010" ; a dcs:Update ] ;
+		dcs:item   [ a dcs:Bugfix, dcs:Packaging ; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/62737> ] 
+		] .
+
+my:project :release my:v_0-104 .
+my:v_0-104
+	a               :Version ;
+	dc:issued       "2012-02-06"^^xsd:date ;
+	:revision       "0.104"^^xsd:string ;
+	:file-release   <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Spreadsheet-Wright-0.104.tar.gz> ;
+	dcs:changeset [
+		dcs:versus my:v_0-103 ;
+		dcs:item   [ rdfs:label "OpenDocument module had undeclared variable $VERSION."@en; a dcs:Bugfix ; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/74559> ]
 		] .
 
