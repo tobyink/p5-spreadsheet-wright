@@ -4,7 +4,7 @@
 	:homepage       <https://metacpan.org/release/Spreadsheet-Wright>;
 	:download-page  <https://metacpan.org/release/Spreadsheet-Wright>;
 	:bug-database   <http://rt.cpan.org/Dist/Display.html?Queue=Spreadsheet-Wright>;
-	:repository     [ a :SVNRepository ; :browse <http://goddamn.co.uk/svn-web/perlmods/browse/Spreadsheet-Wright/> ];
+	:repository     [ a :GitRepository; :browse <https://github.com/tobyink/p5-spreadsheet-wright> ];
 	:maintainer     cpan:TOBYINK;
 	:developer      cpan:TOBYINK, cpan:AMALTSEV;
 	:documenter     cpan:TOBYINK, cpan:AMALTSEV;
