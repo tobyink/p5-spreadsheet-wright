@@ -1,3 +1,5 @@
+@prefix : <http://usefulinc.com/ns/doap#>.
+
 `Spreadsheet-Wright`
 	:shortdesc      "simple spreadsheet worker"@en;
 	:programming-language  "Perl";
