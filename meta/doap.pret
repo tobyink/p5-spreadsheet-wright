@@ -18,3 +18,6 @@ cpan:TOBYINK
 	foaf:page       <https://metacpan.org/author/TOBYINK> ;
 	foaf:mbox       <mailto:tobyink@cpan.org> ;
 	owl:sameAs      <http://tobyinkster.co.uk/#i>.
+
+<http://dev.perl.org/licenses/>
+	dc:title  "the same terms as the perl 5 programming language system itself".
