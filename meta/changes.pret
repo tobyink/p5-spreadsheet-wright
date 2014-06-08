@@ -1,0 +1,26 @@
+`Spreadsheet-Wright 0.102 cpan:TOBYINK`
+	issued       2010-08-03;
+	label        "Fork of Spreadsheet::Write"@en;
+	changeset [
+		dcs:versus <http://purl.org/NET/cpan-uri/dist/Spreadsheet-Write/v_0-03>;
+		item   [ label "Split CSV and Excel outputs into separate modules"@en ];
+		item   [ label "HTML and XHTML output"@en; a dcs:Addition ];
+		item   [ label "JSON output"@en; a dcs:Addition ];
+		item   [ label "OpenDocument (OpenOffice.org) output"@en; a dcs:Addition ];
+		item   [ label "addrows() shortcut for adding multiple rows"; a dcs:Addition ];
+	] .
+
+`Spreadsheet-Wright 0.103 cpan:TOBYINK`
+	issued       2011-11-04;
+	changeset [
+		item   [ label "Minor cleanups."@en ];
+		item   [ label "Module::Package::RDF"@en; a dcs:Packaging ];
+		item   [ label "use 5.010"; a dcs:Update ];
+		item   [ a dcs:Bugfix, dcs:Packaging ; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/62737> ];
+	].
+
+`Spreadsheet-Wright 0.104 cpan:TOBYINK`
+	issued       2012-02-06;
+	changeset [
+		item   [ label "OpenDocument module had undeclared variable $VERSION."@en; a dcs:Bugfix ; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/74559> ];
+	].

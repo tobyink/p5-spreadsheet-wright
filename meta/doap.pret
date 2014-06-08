@@ -1,0 +1,20 @@
+`Spreadsheet-Wright`
+	:shortdesc      "simple spreadsheet worker"@en;
+	:programming-language  "Perl";
+	:homepage       <https://metacpan.org/release/Spreadsheet-Wright>;
+	:download-page  <https://metacpan.org/release/Spreadsheet-Wright>;
+	:bug-database   <http://rt.cpan.org/Dist/Display.html?Queue=Spreadsheet-Wright>;
+	:repository     [ a :SVNRepository ; :browse <http://goddamn.co.uk/svn-web/perlmods/browse/Spreadsheet-Wright/> ];
+	:maintainer     cpan:TOBYINK;
+	:developer      cpan:TOBYINK, cpan:AMALTSEV;
+	:documenter     cpan:TOBYINK, cpan:AMALTSEV;
+	:tester         cpan:TOBYINK;
+	:license        <http://dev.perl.org/licenses/> .
+
+cpan:TOBYINK
+	a               foaf:Person;
+	foaf:name       "Toby Inkster";
+	foaf:homepage   <http://tobyinkster.co.uk/> ;
+	foaf:page       <https://metacpan.org/author/TOBYINK> ;
+	foaf:mbox       <mailto:tobyink@cpan.org> ;
+	owl:sameAs      <http://tobyinkster.co.uk/#i>.
