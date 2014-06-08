@@ -24,3 +24,12 @@
 	changeset [
 		item   [ label "OpenDocument module had undeclared variable $VERSION."@en; a dcs:Bugfix ; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/74559> ];
 	].
+
+`Spreadsheet-Wright 0.105 cpan:TOBYINK`
+	issued       2014-06-08;
+	changeset [
+		item "use Dist::Inkt."^^Packaging;
+		item "Repository is now on GitHub."^^Packaging;
+		item "Use strict and warnings instead of common::sense."^^Update;
+		item "Avoid use of given/when."^^Update;
+	].
