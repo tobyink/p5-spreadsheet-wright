@@ -6,7 +6,7 @@ use warnings;
 no warnings qw( uninitialized numeric );
 
 BEGIN {
-	$Spreadsheet::Wright::JSON::VERSION   = '0.105';
+	$Spreadsheet::Wright::JSON::VERSION   = '0.106';
 	$Spreadsheet::Wright::JSON::AUTHORITY = 'cpan:TOBYINK';
 }
 

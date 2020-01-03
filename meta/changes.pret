@@ -33,3 +33,11 @@
 		item "Use strict and warnings instead of common::sense."^^Update;
 		item "Avoid use of given/when."^^Update;
 	].
+
+`Spreadsheet-Wright 0.106 cpan:TOBYINK`
+	issued       2020-01-03;
+	changeset [
+		item   [ label "addsheet now works for ODS format"@en; a dcs:Bugfix ; dcs:blame cpan:MERKYS; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/131334> ];
+		item   [ label "fix for ODS XML version attribute"@en; a dcs:Bugfix ; dcs:blame cpan:MERKYS; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/128919> ];
+	].
+

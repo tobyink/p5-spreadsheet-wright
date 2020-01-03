@@ -21,5 +21,9 @@ cpan:TOBYINK
 	foaf:mbox       <mailto:tobyink@cpan.org> ;
 	owl:sameAs      <http://tobyinkster.co.uk/#i>.
 
+cpan:MERKYS
+	a               foaf:Person;
+	foaf:name       "Andrius Merkys".
+
 <http://dev.perl.org/licenses/>
 	dc:title  "the same terms as the perl 5 programming language system itself".
