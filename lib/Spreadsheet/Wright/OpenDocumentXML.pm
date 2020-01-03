@@ -59,7 +59,7 @@ sub _prepare
 		$self->{'document'}->documentElement->setNamespace($nsuri, $prefix, $prefix eq 'office' ? 1 : 0);
 	}
 	$self->{'document'}->documentElement->setNodeName('office:document-content');
-	$self->{'document'}->documentElement->setAttribute(OFFICE_NS, 'version', '1.0');
+	$self->{'document'}->documentElement->setAttributeNS(OFFICE_NS, 'version', '1.0');
 	$self->{'body'} = $self->{'document'}->documentElement
 		->addNewChild(OFFICE_NS, 'body')
 		->addNewChild(OFFICE_NS, 'spreadsheet');
