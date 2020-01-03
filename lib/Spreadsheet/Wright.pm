@@ -38,6 +38,7 @@ sub new
 		xhtml   => 'XHTML',
 		xls     => 'Excel',
 		xml     => 'OpenDocumentXML',
+		xlsx    => 'OOXML',
 		}->{lc $format};
 	
 	my $self = eval
