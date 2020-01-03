@@ -72,6 +72,8 @@ sub addsheet
 {
 	my ($self, $caption) = @_;
 
+	$self->_open() or return;
+
 	$self->{'tbody'} = $self->{'body'}->addNewChild(TABLE_NS, 'table');
 
 	if (defined $caption)
