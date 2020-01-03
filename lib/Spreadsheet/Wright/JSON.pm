@@ -18,7 +18,7 @@ use parent qw(Spreadsheet::Wright);
 sub new
 {
 	my ($class, %args) = @_;
-	my $self = bless { 'options' => \%args }, $class;	
+	my $self = bless { 'options' => \%args }, $class;
 	$self->{'_FILENAME'} = $args{'file'} // $args{'filename'}
 		or croak "Need filename.";
 	$self->{'_WORKSHEET'} = $args{'sheet'} // 'Sheet1';
@@ -54,7 +54,7 @@ sub _add_prepared_row
 	my @texts;
 	foreach my $cell (@_)
 	{
-		my $content = $cell->{'content'};		
+		my $content = $cell->{'content'};
 		$content = sprintf($content, $cell->{'sprintf'})
 			if $cell->{'sprintf'};
 		push @texts, $content;
