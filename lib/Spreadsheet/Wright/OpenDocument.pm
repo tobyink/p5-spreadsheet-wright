@@ -6,7 +6,7 @@ use warnings;
 no warnings qw( uninitialized numeric );
 
 BEGIN {
-	$Spreadsheet::Wright::OpenDocument::VERSION   = '0.106';
+	$Spreadsheet::Wright::OpenDocument::VERSION   = '0.107';
 	$Spreadsheet::Wright::OpenDocument::AUTHORITY = 'cpan:TOBYINK';
 }
 

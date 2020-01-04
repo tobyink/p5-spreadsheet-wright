@@ -25,5 +25,9 @@ cpan:MERKYS
 	a               foaf:Person;
 	foaf:name       "Andrius Merkys".
 
+cpan:AMALTSEV
+	a               foaf:Person;
+	foaf:name       "Andrew Maltsev".	
+
 <http://dev.perl.org/licenses/>
 	dc:title  "the same terms as the perl 5 programming language system itself".

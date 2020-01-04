@@ -41,3 +41,9 @@
 		item   [ label "fix for ODS XML version attribute"@en; a dcs:Bugfix ; dcs:blame cpan:MERKYS; dcs:fixes <http://purl.org/NET/cpan-uri/rt/ticket/128919> ];
 	].
 
+`Spreadsheet-Wright 0.107 cpan:TOBYINK`
+	issued       2020-01-04;
+	changeset [
+		item   [ label "Ported XLSX output from Spreadsheet::Write."@en; a dcs:Addition ; dcs:thanks cpan:AMALTSEV ];
+	].
+
