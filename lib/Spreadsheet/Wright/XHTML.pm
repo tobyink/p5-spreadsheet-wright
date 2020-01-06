@@ -24,8 +24,16 @@ sub new
 	
 	my $self = bless { 'options' => \%args }, $class;
 	
-	$self->{'_FILENAME'} = $args{'file'} // $args{'filename'}
-		or croak "Need filename.";
+	my $fh = $args{'fh'} // $args{'filehandle'};
+	if ($fh)
+	{
+		$self->{'_FH'} = $fh;
+	}
+	else
+	{
+		$self->{'_FILENAME'} = $args{'file'} // $args{'filename'}
+			or croak "Need filename";
+	}
 
 	return $self;
 }
