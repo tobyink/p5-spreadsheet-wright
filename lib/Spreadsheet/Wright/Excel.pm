@@ -19,9 +19,18 @@ sub new
 {
 	my ($class, %args) = @_;
 	my $self = bless {}, $class;
-	
-	$self->{'_FILENAME'}  = $args{'file'} // $args{'filename'}
-		or croak "Need filename.";
+
+	my $fh = $args{'fh'} // $args{'filehandle'};
+	if ($fh)
+	{
+		$self->{'_FH'} = $fh;
+	}
+	else
+	{
+		$self->{'_FILENAME'} = $args{'file'} // $args{'filename'}
+			or croak "Need filename";
+	}
+
 	$self->{'_SHEETNAME'} = $args{'sheet'}  // '';
 	$self->{'_STYLES'}    = $args{'styles'} // {};
 		
