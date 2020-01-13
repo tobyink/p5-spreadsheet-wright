@@ -30,7 +30,6 @@ SKIP: {
 	close FILE;
 
 	my $h = Spreadsheet::Wright->new(file => $tmp->filename,
-									 format => 'ods',
 									 sheet => 'Discoveries');
 	$h->addrow('Name', 'Discovery');
 	$h->addrows(
@@ -45,7 +44,7 @@ SKIP: {
 		);
 	$h->close;
 
-	my $book = ReadData( $tmp->filename, parser => 'sxc' );
+	my $book = ReadData( $tmp->filename );
 
 	shift @$book;
 	for my $sheet (@$book) {
