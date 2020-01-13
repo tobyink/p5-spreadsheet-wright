@@ -1,10 +1,28 @@
 use strict;
+use Data::Compare;
 use File::Temp;
-use Test::More tests => 4;
+use Test::More tests => 1;
 use Spreadsheet::Read;
 use Spreadsheet::Wright;
 
 my $tmp = File::Temp->new( SUFFIX => '.ods' );
+
+my $expected = [
+    {
+        label => 'Discoveries',
+        cell => [
+            [ 'Name', 'Archimedes', 'Albert Einstein' ],
+            [ 'Discovery', 'Water displacement', 'General relativity' ],
+        ],
+    },
+    {
+        label => 'Names',
+        cell => [
+            [ 'Name', 'Albert', 'Leonardo' ],
+            [ 'Surname', 'Einstein', 'Da Vinci' ],
+        ],
+    },
+];
 
 SKIP: {
 	open FILE, '>', $tmp->filename
@@ -28,8 +46,17 @@ SKIP: {
 	$h->close;
 
 	my $book = ReadData( $tmp->filename, parser => 'sxc' );
-	is($book->[0]{sheets}, 2, 'correct number of sheets');
-	is($book->[1]{label}, 'Discoveries', 'correct sheet name');
-	is($book->[2]{label}, 'Names', 'correct sheet name');
-	is($book->[1]{cell}[1][2], 'Archimedes', 'correct cell content');
+
+	shift @$book;
+	for my $sheet (@$book) {
+        for my $field (keys %$sheet) {
+			next if $field eq 'cell';
+			next if $field eq 'label';
+			delete $sheet->{$field};
+        }
+        shift @{$sheet->{cell}};
+        $sheet->{cell} = [ map { shift @$_; $_ } @{$sheet->{cell}} ];
+    }
+
+    ok(Compare($expected, $book), 'ODS output works');
 }
