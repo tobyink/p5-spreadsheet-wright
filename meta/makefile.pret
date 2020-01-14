@@ -5,8 +5,11 @@
 `Spreadsheet-Wright`
 	:test-requirement       [ :on "Data::Compare"^^:CpanId ];
 	:test-requirement       [ :on "File::Temp 0.14"^^:CpanId ];
+	:test-requirement       [ :on "Spreadsheet::ParseExcel"^^:CpanId ];
+	:test-requirement       [ :on "Spreadsheet::ParseXLSX"^^:CpanId ];
 	:test-requirement       [ :on "Spreadsheet::Read"^^:CpanId ];
 	:test-requirement       [ :on "Spreadsheet::ReadSXC"^^:CpanId ];
+	:test-requirement       [ :on "Spreadsheet::XLSX"^^:CpanId ];
 	:test-requirement       [ :on "Test::More 0.61"^^:CpanId ];
 	:runtime-requirement    [ :on "perl 5.010000"^^:CpanId ];
 	:runtime-requirement    [ :on "parent"^^:CpanId ];
