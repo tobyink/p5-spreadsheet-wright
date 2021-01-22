@@ -22,6 +22,10 @@ sub new
 	
 	if (lc $format eq 'auto')
 	{
+		if (!defined $filename)
+		{
+			die 'Format auto is not supported without file name';
+		}
 		$format = ($filename =~ /\.([^\.]+)$/) ? lc($1) : 'auto';
 	}
 	
