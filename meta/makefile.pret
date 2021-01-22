@@ -9,6 +9,7 @@
 	:runtime-requirement    [ :on "Text::CSV"^^:CpanId ];
 	:runtime-recommendation [ :on "Archive::Zip"^^:CpanId ];
 	:runtime-recommendation [ :on "DateTime"^^:CpanId ];
+	:runtime-recommendation [ :on "Excel::Writer::XLSX"^^:CpanId ];
 	:runtime-recommendation [ :on "HTML::HTML5::Writer"^^:CpanId ];
 	:runtime-recommendation [ :on "JSON"^^:CpanId ];
 	:runtime-recommendation [ :on "Spreadsheet::WriteExcel"^^:CpanId ];
