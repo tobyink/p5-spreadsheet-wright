@@ -82,13 +82,13 @@ sub close
 	if (1 == scalar keys %{$self->{'data'}})
 	{
 		$self->{'_FH'}->print(
-			to_json($self->{'data'}->{$self->{'_WORKSHEET'}}, $self->{'json_options'})
+			to_json($self->{'data'}->{$self->{'_WORKSHEET'}}, $self->{'options'}{'json_options'})
 			);
 	}
 	else
 	{
 		$self->{'_FH'}->print(
-			to_json($self->{'data'}, $self->{'json_options'})
+			to_json($self->{'data'}, $self->{'options'}{'json_options'})
 			);
 	}
 	
